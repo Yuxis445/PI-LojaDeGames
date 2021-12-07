@@ -15,13 +15,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.generation.minhalojadegames.repository;
+import org.generation.minhalojadegames.Model.Categoria;
+
 @RestController
 @RequestMapping("/categoria")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CategoriaController {
     
     @Autowired
-    private Repository repository;
+    private categoriaRepository repository;
 
     // retornar todos os temas existentes
     @GetMapping
@@ -37,9 +40,9 @@ public class CategoriaController {
 	}
 
 	// procurar um tema pelo nome
-	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Categoria>> getByName(@PathVariable String nome){
-		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(nome));
+	@GetMapping("/genenro/{genero}")
+	public ResponseEntity<List<Categoria>> getByName(@PathVariable String categoria){
+		return ResponseEntity.ok(repository.findAllByCategoriaContainingIgnoreCase(categoria));
 	}
 	
     // inserir um novo dado no BD
