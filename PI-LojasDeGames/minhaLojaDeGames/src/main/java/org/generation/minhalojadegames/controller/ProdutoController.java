@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.generation.minhalojadegames.model.Produto;
-import org.generation.minhalojadegames.repository.produtoRepository;
+import org.generation.minhalojadegames.repository.ProdutoRepository;
 
 @RestController
 @RequestMapping("/produto")
@@ -26,7 +26,7 @@ import org.generation.minhalojadegames.repository.produtoRepository;
 public class ProdutoController {
 	
 	@Autowired
-	private produtoRepository repository;
+	private ProdutoRepository repository;
 	
 	@GetMapping
 	public ResponseEntity<List<Produto>> getAll(){
@@ -42,27 +42,27 @@ public class ProdutoController {
 	
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity<List<Produto>> getByName(@PathVariable String nome){
-		return ResponseEntity.ok(repository.findAllByProdutoContainingIgnoreCase(nome));
+		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	
 	@GetMapping("/preco/{preco}")
 	public ResponseEntity<List<Produto>> getByPreco(@PathVariable double preco){
-		return ResponseEntity.ok(repository.findAllByProdutoContainingIgnoreCase(preco));
+		return ResponseEntity.ok(repository.findAllByPreco(preco));
 	}
 	
 	@GetMapping("/tpmidia/{tpmidia}")
 	public ResponseEntity<List<Produto>> getByTpmidia(@PathVariable String tpmidia){
-		return ResponseEntity.ok(repository.findAllByProdutoContainingIgnoreCase(tpmidia));
+		return ResponseEntity.ok(repository.findAllByTpmidiaContainingIgnoreCase(tpmidia));
 	}
 	
 	@GetMapping("/tamanho/{tamanho}")
 	public ResponseEntity<List<Produto>> getByTamanho(@PathVariable String tamanho){
-		return ResponseEntity.ok(repository.findAllByProdutoContainingIgnoreCase(tamanho));
+		return ResponseEntity.ok(repository.findAllByTamanhoContainingIgnoreCase(tamanho));
 	}
 	
 	@GetMapping("/desenvolvedor/{desenvolvedor}")
 	public ResponseEntity<List<Produto>> getByDesenvolvedor(@PathVariable String desenvolvedor){
-		return ResponseEntity.ok(repository.findAllByProdutoContainingIgnoreCase(desenvolvedor));
+		return ResponseEntity.ok(repository.findAllByDesenvolvedorContainingIgnoreCase(desenvolvedor));
 	}
 	
 	@PostMapping

@@ -24,14 +24,16 @@ public class Categoria {
 	
 	@NotBlank
 	@Size(min = 2, max = 20 , message = "O atributo Genêro deve ter no min 2 caracteres")
-	private String Genero; 
+	private String genero; 
 	
 	@NotBlank
 	@Size(min = 2, max = 20 , message = "O atributo Plataforma deve ter no minimo 2 caracteres")
-	private String Plataforma;
+	private String plataforma;
+	
 	
 	private Boolean Multiplayer;
 	
+
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("Categoria")
 	private List<Produto> produto;
@@ -57,29 +59,29 @@ public class Categoria {
 
 
 	public String getGenero() {
-		return Genero;
+		return genero;
 	}
 
 
 
 	public void setGenero(String genero) {
-		Genero = genero;
+		this.genero = genero;
 	}
 
 
 
 	public String getPlataforma() {
-		return Plataforma;
+		return plataforma;
 	}
 
 
 
 	public void setPlataforma(String plataforma) {
-		Plataforma = plataforma;
+		this.plataforma = plataforma;
 	}
 
 
-
+	
 	public Boolean getMultiplayer() {
 		return Multiplayer;
 	}
@@ -89,7 +91,7 @@ public class Categoria {
 	public void setMultiplayer(Boolean multiplayer) {
 		Multiplayer = multiplayer;
 	}
-
+	
 
  
 }
