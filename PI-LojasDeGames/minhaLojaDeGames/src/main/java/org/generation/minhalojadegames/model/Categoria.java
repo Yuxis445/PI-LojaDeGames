@@ -1,5 +1,8 @@
 package org.generation.minhalojadegames.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +15,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table
+@Table (name = "Categoria")
 public class Categoria {
 
 	@Id
@@ -20,7 +23,7 @@ public class Categoria {
 	private long id; 
 	
 	@NotBlank
-	@Size(min = 2, max = 20 , message = "O atributo Generro deve ter no min 2 caracteres")
+	@Size(min = 2, max = 20 , message = "O atributo Genêro deve ter no min 2 caracteres")
 	private String Genero; 
 	
 	@NotBlank
@@ -29,7 +32,7 @@ public class Categoria {
 	
 	private Boolean Multiplayer;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("Categoria")
 	private List<Produto> produto;
 	

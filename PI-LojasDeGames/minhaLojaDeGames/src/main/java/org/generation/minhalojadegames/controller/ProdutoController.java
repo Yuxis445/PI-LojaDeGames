@@ -42,27 +42,27 @@ public class ProdutoController {
 	
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity<List<Produto>> getByName(@PathVariable String nome){
-		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
+		return ResponseEntity.ok(repository.findAllByProdutoContainingIgnoreCase(nome));
 	}
 	
 	@GetMapping("/preco/{preco}")
 	public ResponseEntity<List<Produto>> getByPreco(@PathVariable double preco){
-		return ResponseEntity.ok(repository.findAllByPrecoContainingIgnoreCase(preco));
+		return ResponseEntity.ok(repository.findAllByProdutoContainingIgnoreCase(preco));
 	}
 	
 	@GetMapping("/tpmidia/{tpmidia}")
 	public ResponseEntity<List<Produto>> getByTpmidia(@PathVariable String tpmidia){
-		return ResponseEntity.ok(repository.findAllByTpmidiaContainingIgnoreCase(tpmidia));
+		return ResponseEntity.ok(repository.findAllByProdutoContainingIgnoreCase(tpmidia));
 	}
 	
 	@GetMapping("/tamanho/{tamanho}")
 	public ResponseEntity<List<Produto>> getByTamanho(@PathVariable String tamanho){
-		return ResponseEntity.ok(repository.findAllByTamanhoContainingIgnoreCase(tamanho));
+		return ResponseEntity.ok(repository.findAllByProdutoContainingIgnoreCase(tamanho));
 	}
 	
 	@GetMapping("/desenvolvedor/{desenvolvedor}")
 	public ResponseEntity<List<Produto>> getByDesenvolvedor(@PathVariable String desenvolvedor){
-		return ResponseEntity.ok(repository.findAllByDesenvolvedorContainingIgnoreCase(desenvolvedor));
+		return ResponseEntity.ok(repository.findAllByProdutoContainingIgnoreCase(desenvolvedor));
 	}
 	
 	@PostMapping

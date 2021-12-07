@@ -40,7 +40,7 @@ public class CategoriaController {
 	}
 
 	// procurar um tema pelo nome
-	@GetMapping("/genenro/{genero}")
+	@GetMapping("/genero/{genero}")
 	public ResponseEntity<List<Categoria>> getByName(@PathVariable String categoria){
 		return ResponseEntity.ok(repository.findAllByCategoriaContainingIgnoreCase(categoria));
 	}
