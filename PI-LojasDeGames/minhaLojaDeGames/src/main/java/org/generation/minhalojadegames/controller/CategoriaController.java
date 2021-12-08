@@ -32,7 +32,7 @@ public class CategoriaController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
-    // procurar um ema pelo id
+    // procurar um tema pelo id
 	@GetMapping("/{id}")
 	public ResponseEntity<Categoria> getById(@PathVariable long id){
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
