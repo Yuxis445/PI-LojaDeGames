@@ -4,11 +4,12 @@ import java.nio.charset.Charset;
 import java.util.Optional;
 
 import org.apache.commons.codec.binary.Base64;
+import org.generation.minhalojadegames.model.UserLogin;
+import org.generation.minhalojadegames.model.Usuario;
+import org.generation.minhalojadegames.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Basic;
 
 @Service
 public class UsuarioService {
